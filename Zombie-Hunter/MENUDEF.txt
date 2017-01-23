@@ -1,0 +1,719 @@
+//-------------------------------------------------------------------------------------------
+//
+// Note:
+// Much of the menu structure defined here is accessed internally by CCMDs
+// and menu generation code. If you want to design your own menus make sure
+// that they are named identically and that links to all important submenus
+// are present.
+//
+//-------------------------------------------------------------------------------------------
+
+DEFAULTLISTMENU
+{
+	Font "BigFont", "Untranslated"
+	Selector "M_SKULL", -32, -5
+	Linespacing 16
+	Font "BigFont", "Red"
+}
+
+
+
+LISTMENU "MainMenu"
+{
+	IfGame(Doom, Chex)
+	{
+		Position 7, 122
+		IfOption(ReadThis)
+		{
+			Position 97, 64
+		}
+	}
+	
+	IfGame(Doom, Strife, Chex)
+	{
+		PatchItem "M_NGAMI", "n", "PlayerClassMenu"
+		ifOption(SwapMenu)
+		{
+			PatchItem "M_OPTIO","o", "OptionsMenu"
+		}
+		else
+		{
+			PatchItem "M_OPTIO","o", "OptionsMenu"
+		}
+		ifOption(ReadThis)
+		{
+			PatchItem "M_RDTHIS","r", "ReadThisMenu"
+		}
+		PatchItem "M_EXIT", "q", "QuitMenu"
+	}
+	
+}
+
+LISTMENU "PlayMenu"
+{
+	Position 7, 122
+	PatchItem "M_LOAD", "l", "LoadGameMenu"
+	PatchItem "M_NGAMI", "n", "PlayerClassMenu"
+}
+ListMenu "PlayerclassMenu"
+{
+	IfGame(Doom, Heretic, Hexen, Strife)
+	{
+		NetgameMessage "$NEWGAME"
+		PatchItem "M_LOADG", "l", "LoadGameMenu"
+	}
+	IfGame(Doom, Strife, Chex)
+	{
+		StaticTextCentered 160, 15, "$MNU_CHOOSECLASS"
+		Position 48, 63
+		PlayerDisplay 220, 63, "20 00 00", "80 00 40"
+		MouseWindow 0, 220
+	}
+	// The rest of this menu will be set up based on the actual player definitions.
+}
+
+ListMenu "SaveMenu"
+{
+}
+
+
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONS"
+	Submenu "Customize Controls",		"CustomizeControls"
+	StaticText " "
+	Submenu "Mouse options",			"MouseOptions"
+	StaticText " "
+	Submenu "Joystick options",			"JoystickOptions"
+	StaticText " "
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	StaticText " "
+//	Submenu "Gameplay Options",			"GameplayOptions"
+//	Submenu "Compatibility Options",	"CompatibilityOptions"
+//	Submenu "Automap Options",			"AutomapOptions"
+//	Submenu "HUD Options",				"HUDOptions"
+//	Submenu "Miscellaneous Options",	"MiscOptions"
+//	Submenu "Network Options",			"NetworkOptions"
+	Submenu "Sound Options",			"SoundOptions"
+	StaticText " "
+	Submenu "Display Options",			"VideoOptions"
+	StaticText " "
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	StaticText " "
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	StaticText " "
+	Command "Go to console",			"menuconsole"
+}
+
+OptionMenu "CustomizeControls"
+{
+	Title "CUSTOMIZE CONTROLS"
+	ScrollTop 2
+	StaticTextSwitchable 	"ENTER to change, BACKSPACE to clear", "Press new key for control, ESC to cancel", "ControlMessage"
+	StaticText 	" "
+	StaticText 	"Controls", 1
+	StaticText 	" "
+	Control 	"Fire",					"+attack"
+	StaticText 	" "
+//	Control 	"Secondary Fire",		"+altattack"
+//	Control 	"Weapon Reload",			"+reload"
+//	Control 	"Weapon Zoom",				"+zoom"
+	Control 	"Use / Open",			"+use"
+	StaticText 	" "
+	Control 	"Move forward",			"+forward"
+	StaticText 	" "
+	Control 	"Move backward",		"+back"
+	StaticText 	" "
+	Control 	"Strafe left",			"+moveleft"
+	StaticText 	" "
+	Control 	"Strafe right",			"+moveright"
+	StaticText 	" "
+	Control 	"Turn left",			"+left"
+	StaticText 	" "
+	Control 	"Turn right",			"+right"
+	StaticText 	" "
+//	Control 	"Jump",					"+jump"
+//	Control 	"Crouch",				"+crouch"
+//	Control 	"Crouch Toggle",		"crouch"
+//	Control 	"Fly / Swim up",		"+moveup"
+//	Control 	"Fly / Swim down",		"+movedown"
+//	Control 	"Stop flying",			"land"
+//	Control 	"Mouse look",			"+mlook"
+//	Control 	"Keyboard look",		"+klook"
+//	Control 	"Look up",				"+lookup"
+//	Control 	"Look down",			"+lookdown"
+//	Control 	"Center view",			"centerview"
+	Control 	"Run",					"+speed"
+	StaticText 	" "
+	Control 	"Strafe",				"+strafe"
+	StaticText 	" "
+//	Control 	"Show Scoreboard",		"+showscores"
+//	Control 	"Toggle Scoreboard",	"togglescoreboard"
+//	StaticText 	""
+//	StaticText 	"Chat", 1
+//	Control 	"Say",					"messagemode"
+//	Control 	"Team say",				"messagemode2"
+//	StaticText 	""
+//	StaticText 	"Weapons", 1
+//	Control 	"Next weapon",			"weapnext"
+//	Control 	"Previous weapon",		"weapprev"
+//	Control		"Weapon Slot 1",		"slot 1"
+//	Control		"Weapon Slot 2",		"slot 2"
+//	Control		"Weapon Slot 3",		"slot 3"
+//	Control		"Weapon Slot 4",		"slot 4"
+//	Control		"Weapon Slot 5",		"slot 5"
+//	Control		"Weapon Slot 6",		"slot 6"
+//	Control		"Weapon Slot 7",		"slot 7"
+//	Control		"Weapon Slot 8",		"slot 8"
+//	Control		"Weapon Slot 9",		"slot 9"
+//	Control		"Weapon Slot 0",		"slot 0"
+//	StaticText 	""
+//	StaticText 	"Inventory", 1
+//	Control 	"Activate item",		"invuse"
+//	Control 	"Activate all items",	"invuseall"
+//	Control 	"Next item",			"invnext"
+//	Control 	"Previous item",		"invprev"
+//	Control 	"Drop item",			"invdrop"
+//	Control		"Query item",			"invquery"
+//	Control 	"Drop weapon",			"weapdrop"
+	StaticText 	""
+	StaticText 	"Other", 1
+	StaticText 	" "
+//	Control 	"Toggle automap",		"togglemap"
+//	Control 	"Chasecam",				"chase"
+//	Control 	"Coop spy",				"spynext"
+	Control 	"Screenshot",			"screenshot"
+	StaticText 	" "
+	Control  	"Open console",			"toggleconsole"
+	StaticText 	""
+//	StaticText 	"Strife Popup Screens", 1
+//	Control 	"Mission objectives",	"showpop 1"
+//	Control 	"Keys list",			"showpop 2"
+//	Control 	"Weapons/ammo/stats",	"showpop 3"
+}
+
+OptionMenu "MouseOptions"
+{
+	Title "$MOUSEMNU_TITLE"
+	Option "$MOUSEMNU_ENABLEMOUSE",		"use_mouse", "YesNo"
+	StaticText 	" "
+	Option "$MOUSEMNU_MOUSEINMENU",		"m_use_mouse", "MenuMouse", "use_mouse"
+	StaticText 	" "
+	Option "$MOUSEMNU_SHOWBACKBUTTON",	"m_show_backbutton", "Corners", "use_mouse"
+	StaticText 	" "
+	Option "$MOUSEMNU_CURSOR",			"vid_cursor", "Cursors"
+	StaticText 	""
+	Slider "$MOUSEMNU_SENSITIVITY",		"mouse_sensitivity", 0.5, 2.5, 0.1
+	StaticText 	" "
+	Option "$MOUSEMNU_NOPRESCALE",		"m_noprescale", "NoYes"
+	StaticText 	" "
+	Option "$MOUSEMNU_SMOOTHMOUSE",		"smooth_mouse", "YesNo"
+	StaticText 	""
+	Slider "$MOUSEMNU_TURNSPEED",		"m_yaw", 0, 2.5, 0.1
+	StaticText 	" "
+	Slider "$MOUSEMNU_MOUSELOOKSPEED",	"m_pitch", 0, 2.5, 0.1
+	StaticText 	" "
+	Slider "$MOUSEMNU_FORWBACKSPEED",	"m_forward", 0, 2.5, 0.1
+	StaticText 	" "
+	Slider "$MOUSEMNU_STRAFESPEED",		"m_side", 0, 2.5, 0.1
+	StaticText 	""
+	Option "$MOUSEMNU_ALWAYSMOUSELOOK",	"freelook", "OnOff"
+	StaticText 	" "
+	Option "$MOUSEMNU_INVERTMOUSE",		"invertmouse", "OnOff"
+	StaticText 	" "
+	Option "$MOUSEMNU_LOOKSPRING",		"lookspring", "OnOff"
+	StaticText 	" "
+	Option "$MOUSEMNU_LOOKSTRAFE",		"lookstrafe", "OnOff"
+}
+
+OptionMenu "OpenGLOptions"
+{
+	Title "$GLMNU_TITLE"
+	Submenu "$GLMNU_DYNLIGHT",	"GLLightOptions"
+	StaticText 	" "
+	Submenu "$GLMNU_TEXOPT", 			"GLTextureGLOptions"
+	StaticText 	" "
+	Submenu "$GLMNU_PREFS", 				"GLPrefOptions"
+	StaticText 	" "
+}
+
+OptionMenu "VideoOptions"
+{
+	Title "$DSPLYMNU_TITLE"
+	
+	Submenu "$DSPLYMNU_GLOPT", 			"OpenGLOptions"
+//	StaticText 	" "
+//	Submenu "$DSPLYMNU_SCOREBOARD", 			"ScoreboardOptions"
+	StaticText " "
+//	Slider "$DSPLYMNU_SCREENSIZE",				"screenblocks", 3.0, 12.0, 1.0, 0
+
+	Slider "$DSPLYMNU_GAMMA",			"Gamma",						0.75, 3.0, 0.05, 2
+	StaticText 	" "
+//	Slider "$DSPLYMNU_BRIGHTNESS",				"vid_brightness",				-0.8,0.8, 0.05
+//	StaticText 	" "
+//	Slider "$DSPLYMNU_CONTRAST",					"vid_contrast",	   				0.1, 3.0, 0.1
+	StaticText 	" "
+	Option "Show FPS:", "vid_fps" , "OnOff"
+	StaticText 	" "
+	Option "$DSPLYMNU_HWGAMMA",					"vid_hwgamma", "HWGammaModes"
+	StaticText 	" "
+
+	Option "$DSPLYMNU_VSYNC",					"vid_vsync", "OnOff"
+	StaticText 	" "
+	Option "$DSPLYMNU_CAPFPS",					"cl_capfps", "OffOn"
+
+	StaticText " "
+	Option "$DSPLYMNU_WIPETYPE",				"wipetype", "Wipes"
+	StaticText 	" "
+
+	/*IfOption(Windows)
+	{
+		Option	"$DSPLYMNU_SHOWENDOOM",			"showendoom", "Endoom"
+		StaticText 	" "
+		//Option "$DSPLYMNU_PALLETEHACK", 		"vid_palettehack", "OnOff"
+		//Option "$DSPLYMNU_ATTACHEDSURFACES", 	"vid_attachedsurfaces", "OnOff"
+	}
+	*/
+	
+//	Option "$DSPLYMNU_STRETCHSKY",				"r_stretchsky", "OnOff"
+//	StaticText 	" "
+	Option "$DSPLYMNU_DRAWFUZZ",				"r_drawfuzz", "Fuzziness"
+	StaticText 	" "
+//	Slider "$DSPLYMNU_TRANSSOUL",				"transsouls", 0.25, 1.0, 0.05, 2
+//	StaticText 	" "
+//	Option "$DSPLYMNU_FAKECONTRAST",			"r_fakecontrast", "Contrast"
+//	StaticText 	" "
+//	Option "$DSPLYMNU_ROCKETTRAILS",			"cl_rockettrails", "RocketTrailTypes"
+//	StaticText 	" "
+//	Option "$DSPLYMNU_BLOODTYPE",				"cl_bloodtype", "BloodTypes"
+//	StaticText 	" "
+	Option "$DSPLYMNU_PUFFTYPE",				"cl_pufftype", "PuffTypes"
+	StaticText 	" "
+	Slider "$DSPLYMNU_MAXPARTICLES",			"r_maxparticles", 100, 10000, 100, 0
+	StaticText 	" "
+	Slider "$DSPLYMNU_MAXDECALS",				"cl_maxdecals", 0, 10000, 100, 0
+	StaticText 	" "
+//	Option "$DSPLYMNU_PLAYERSPRITES",			"r_drawplayersprites", "OnOff"
+//	StaticText 	" "
+//	Option "$DSPLYMNU_DEATHCAM",				"r_deathcamera", "OnOff"
+//	StaticText 	" "
+//	Option "$DSPLYMNU_TELEZOOM",				"telezoom", "OnOff"
+//  StaticText 	" "
+//	Slider "$DSPLYMNU_QUAKEINTENSITY",			"r_quakeintensity", 0.0, 1.0, 0.05, 2
+//	StaticText 	" "
+	Option "$DSPLYMNU_NOMONSTERINTERPOLATION",	"nomonsterinterpolation", "NoYes"
+	StaticText 	" "
+//	Slider "$DSPLYMNU_MENUDIM",					"dimamount", 0, 1.0, 0.05, 2
+//	StaticText 	" "
+//	ColorPicker "$DSPLYMNU_DIMCOLOR",			"dimcolor"
+//	StaticText 	" "
+//	Slider "$DSPLYMNU_MOVEBOB",			"movebob", 0, 1.0, 0.05, 2
+//	StaticText 	" "
+//	Slider "$DSPLYMNU_STILLBOB",		"stillbob", 0, 1.0, 0.05, 2
+//	StaticText 	" "
+}
+
+OptionMenu "HUDOptions"
+{
+	Title "$HUDMNU_TITLE"
+	Submenu "$HUDMNU_ALTHUD",				"AltHudOptions"
+	StaticText 	" "
+	Submenu "$HUDMNU_MESSAGE", 				"MessageOptions"
+	StaticText " "
+	StaticText 	" "
+	Option "$HUDMNU_CROSSHAIR",				"crosshair", "Crosshairs"
+	StaticText 	" "
+	Option "$HUDMNU_FORCECROSSHAIR",		"crosshairforce", "OnOff"
+	StaticText 	" "
+	Option "$HUDMNU_GROWCROSSHAIR",			"crosshairgrow", "OnOff"
+	StaticText 	" "
+	ColorPicker "$HUDMNU_CROSSHAIRCOLOR", 	"crosshaircolor"
+	StaticText 	" "
+	Option "$HUDMNU_CROSSHAIRHEALTH",		"crosshairhealth", "OnOff"
+	StaticText 	" "
+	Option "$HUDMNU_CROSSHAIRSCALE",		"crosshairscale", "OnOff"
+	StaticText 	" "
+	StaticText " "
+	StaticText 	" "
+	Option "$HUDMNU_NAMETAGS",				"displaynametags", "DisplayTagsTypes"
+	StaticText 	" "
+	Option "$HUDMNU_NAMETAGCOLOR",			"nametagcolor", "TextColors", "displaynametags"
+	StaticText 	" "
+	Option "$HUDMNU_SCALESTATBAR",			"st_scale", "OnOff"
+	StaticText 	" "
+	Option "$HUDMNU_SCALEFULLSCREENHUD",	"hud_scale", "OnOff"
+	StaticText 	" "
+	Option "$HUDMNU_OLDOUCH",				"st_oldouch", "OnOff"
+	StaticText 	" "
+	StaticText " "
+	StaticText 	" "
+	Option "$HUDMNU_HEXENFLASHES",			"pf_hexenweaps", "ZDoomHexen"
+	StaticText 	" "
+	Option "$HUDMNU_POISONFLASHES",			"pf_poison", "ZDoomHexen"
+	StaticText 	" "
+	Option "$HUDMNU_ICEFLASHES",			"pf_ice", "ZDoomHexen"
+	StaticText 	" "
+	Option "$HUDMNU_HAZARDFLASHES",			"pf_hazard", "ZDoomStrife"
+}
+
+OptionMenu FMODSoundItems
+{
+	Title "$FMODMNU_TITLE"
+	Slider	"$FMODMNU_WATERCUTOFF",			"snd_waterlp", 0.0, 2000.0, 50.0, 0
+	StaticText " "
+	IfOption(Windows)
+	{
+		Option "$FMODMNU_OUTPUTSYSTEM",		"snd_output", "SoundOutputsWindows"
+	StaticText " "
+	}
+	IfOption(Unix)
+	{
+		Option "$FMODMNU_OUTPUTSYSTEM",		"snd_output", "SoundOutputsUnix"
+	StaticText " "
+	}
+	IfOption(Mac)
+	{
+		Option "$FMODMNU_OUTPUTSYSTEM",		"snd_output", "SoundOutputsMac"
+	StaticText " "
+	}
+	Option "$FMODMNU_OUTPUTFORMAT",			"snd_output_format", "OutputFormats"
+	StaticText " "
+	Option "$FMODMNU_SPEAKERMODE",			"snd_speakermode", "SpeakerModes"
+	StaticText " "
+	Option "$FMODMNU_RESAMPLER",			"snd_resampler", "Resamplers"
+	StaticText " "
+	Option "$FMODMNU_HRTFFILTER",			"snd_hrtf", "OnOff"
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	Option "$FMODMNU_BUFFERSIZE",			"snd_buffersize", "BufferSizes"
+	StaticText " "
+	Option "$FMODMNU_BUFFERCOUNT",			"snd_buffercount", "BufferCounts"
+	StaticText " "
+}
+
+
+OptionMenu OpenALSoundItems
+{
+	Title "$OPENALMNU_TITLE"
+	Option "$OPENALMNU_PLAYBACKDEVICE",		"snd_aldevice",	"ALDevices"
+	StaticText " "
+	Option "$OPENALMNU_ENABLEEFX",			"snd_efx",		"OnOff"
+	StaticText " "
+}
+
+
+OptionValue MidiDevices
+{
+	// filled in by the sound code
+}
+
+OptionMenu SoundOptions
+{
+	Title "$SNDMNU_TITLE"
+	StaticText " "
+	Slider "$SNDMNU_SFXVOLUME",			"snd_sfxvolume", 0, 1, 0.05, 2
+	StaticText " "
+	Slider "$SNDMNU_MENUVOLUME",		"snd_menuvolume", 0, 1, 0.05, 2
+	StaticText " "
+	Slider "$SNDMNU_MUSICVOLUME",		"snd_musicvolume", 0, 1, 0.05, 2
+	StaticText " "
+//	Option "$SNDMNU_MIDIDEVICE",		"snd_mididevice", "MidiDevices"
+//	StaticText " "
+	StaticText " "
+	StaticText " "
+//	Option "$SNDMNU_UNDERWATERREVERB",	"snd_waterreverb", "OnOff"
+//	StaticText " "
+//	Option "$SNDMNU_RANDOMIZEPITCHES",	"snd_pitched", "OnOff"
+//	StaticText " "
+	Slider "$SNDMNU_CHANNELS",			"snd_channels", 8, 256, 8, 0
+	StaticText " "
+	StaticText " "
+
+	ifoption(fmodex)
+	{
+		ifoption(openal)
+		{
+			Option "$SNDMNU_BACKEND",		"snd_backend", "SoundBackends"
+	StaticText " "
+		}
+		else
+		{
+			Option "$SNDMNU_BACKEND",		"snd_backend", "SoundBackendsFModOnly"
+	StaticText " "
+		}
+	}
+	else
+	{
+		ifoption(openal)
+		{
+			Option "$SNDMNU_BACKEND",		"snd_backend", "SoundBackendsOpenALOnly"
+	StaticText " "
+		}
+	}
+	
+	ifoption(fmodex)
+	{
+		Submenu "$SNDMNU_FMOD",			"FMODSoundItems"
+	StaticText " "
+	}
+	ifoption(openal)
+	{
+		Submenu "$SNDMNU_OPENAL",		"OpenALSoundItems"
+	StaticText " "
+	}
+	StaticText " "
+	Command "$SNDMNU_RESTART",			"snd_reset"
+	StaticText " "
+
+//	StaticText " "
+//	Submenu "$SNDMNU_ADVANCED",			"AdvSoundOptions"
+//	StaticText " "
+//	Submenu "$SNDMNU_MODREPLAYER",		"ModReplayerOptions"
+//	StaticText " "
+}
+
+
+OptionMenu AdvSoundOptions
+{
+	Title "$ADVSNDMNU_TITLE"
+	Option "$ADVSNDMNU_SAMPLERATE",			"snd_samplerate", "SampleRates"
+	StaticText " "
+	StaticText " "
+	StaticText "$ADVSNDMNU_OPLSYNTHESIS",	1
+	StaticText " "
+	Slider "$ADVSNDMNU_OPLNUMCHIPS", 		"opl_numchips", 1, 8, 1, 0
+	StaticText " "
+	Option "$ADVSNDMNU_OPLFULLPAN",			"opl_fullpan", "OnOff"
+	StaticText " "
+	Option "$ADVSNDMNU_OPLCORES", 			"opl_core", "OplCores"
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText "$ADVSNDMNU_GUSEMULATION",	1
+	StaticText " "
+	TextField "$ADVSNDMNU_GUSCONFIG", 		"midi_config"
+	StaticText " "
+	Slider "$ADVSNDMNU_MIDIVOICES",			"midi_voices", 16, 256, 4, 0
+	StaticText " "
+	Option "$ADVSNDMNU_DMXGUS", 			"midi_dmxgus", "OnOff"
+	StaticText " "
+	Option "$ADVSNDMNU_GUSMEMSIZE", 		"gus_memsize", "GusMemory"
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText "$ADVSNDMNU_FLUIDSYNTH",	1
+	StaticText " "
+	TextField "$ADVSNDMNU_FLUIDPATCHSET", 	"fluid_patchset"
+	StaticText " "
+	Slider "$ADVSNDMNU_FLUIDGAIN",			"fluid_gain", 0, 10, 0.5, 1
+	StaticText " "
+	Option "$ADVSNDMNU_REVERB", 			"fluid_reverb", "OnOff"
+	StaticText " "
+	Slider "$ADVSNDMNU_FLUIDVOICES", 		"fluid_voices", 16, 4096, 16, 1
+	StaticText " "
+	// Leaving out the more advanced stuff for now.
+	StaticText " "
+	StaticText "$ADVSNDMNU_TIMIDITY",	1
+	StaticText " "
+	TextField "$ADVSNDMNU_TIMIDITYEXE", 	"timidity_exe"
+	StaticText " "
+	Option "$ADVSNDMNU_REVERB", 			"timidity_reverb", "OnOff"
+	StaticText " "
+	Option "$ADVSNDMNU_TIMIDITYCHORUS", 	"timidity_chorus", "OnOff"
+	StaticText " "
+	Slider "$ADVSNDMNU_TIMIDITYVOLUME",		"timidity_mastervolume", 0, 4, 0.2, 1
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText "$ADVSNDMNU_WILDMIDI",	1
+	StaticText " "
+	TextField "$ADVSNDMNU_WILDMIDICONFIG", 	"wildmidi_config"
+	StaticText " "
+	Option "$ADVSNDMNU_REVERB", 			"wildmidi_reverb", "OnOff"
+}
+
+
+OptionMenu VideoModeMenu
+{
+	Title "$VIDMNU_TITLE"
+	
+	Option "$VIDMNU_FULLSCREEN",		"fullscreen", "YesNo"
+	StaticText " "
+	IfOption(Mac)
+	{
+		Option "$VIDMNU_HIDPI",			"vid_hidpi", "YesNo"
+	StaticText " "
+	}
+	Option "$VIDMNU_ASPECTRATIO",		"menu_screenratios", "Ratios"
+	StaticText " "
+	Option "$VIDMNU_FORCEASPECT",		"vid_aspect", "ForceRatios"
+	StaticText " "
+	Option "$VIDMNU_5X4ASPECTRATIO",	"vid_tft", "YesNo"
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	ScreenResolution "res_0"
+	StaticText " "
+	ScreenResolution "res_1"
+	StaticText " "
+	ScreenResolution "res_2"
+	StaticText " "
+	ScreenResolution "res_3"
+	StaticText " "
+	ScreenResolution "res_4"
+	StaticText " "
+	ScreenResolution "res_5"
+	StaticText " "
+	ScreenResolution "res_6"
+	StaticText " "
+	ScreenResolution "res_7"
+	StaticText " "
+	ScreenResolution "res_8"
+	StaticText " "
+	ScreenResolution "res_9"
+	StaticText " "
+	StaticTextSwitchable "$VIDMNU_ENTERTEXT", "", "VMEnterText"
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticTextSwitchable "$VIDMNU_TESTTEXT1", "$VIDMNU_TESTTEXT2", "VMTestText"
+	StaticText " "
+	class VideoModeMenu
+}
+
+
+OptionMenu NetworkOptions
+{
+	Title "$NETMNU_TITLE"
+	StaticText " "
+	StaticText "$NETMNU_LOCALOPTIONS", 1
+	StaticText " "
+	Option "$NETMNU_MOVEPREDICTION",		"cl_noprediction", "OffOn"
+	StaticText " "
+	Option "$NETMNU_LINESPECIALPREDICTION",	"cl_predict_specials", "OnOff"
+	StaticText " "
+	Slider "$NETMNU_PREDICTIONLERPSCALE",	"cl_predict_lerpscale", 0.0, 0.5, 0.05
+	StaticText " "
+	Slider "$NETMNU_LERPTHRESHOLD",			"cl_predict_lerpthreshold", 0.1, 16.0, 0.1
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText "$NETMNU_HOSTOPTIONS", 1
+	StaticText " "
+	Option "$NETMNU_EXTRATICS",				"net_extratic", "ExtraTicMode"
+	StaticText " "
+	Option "$NETMNU_TICBALANCE",			"net_ticbalance", "OnOff"
+	StaticText " "
+	
+}
+
+
+OptionMenu "GLTextureGLOptions"
+{
+	Title "$GLTEXMNU_TITLE"
+	StaticText " "
+//	Option "$GLTEXMNU_TEXENABLED",		gl_texture,						"YesNo"
+//	StaticText " "
+	Option "$GLTEXMNU_TEXFILTER",		gl_texture_filter,				"FilterModes"
+	StaticText " "
+	Option "$GLTEXMNU_ANISOTROPIC",		gl_texture_filter_anisotropic,	"Anisotropy"
+//	StaticText " "
+//	Option "$GLTEXMNU_TEXFORMAT",		gl_texture_format,				"TextureFormats"
+	StaticText " "
+//	Option "$GLTEXMNU_ENABLEHIRES",		gl_texture_usehires,			"YesNo"
+//	StaticText " "
+	Option "$GLTEXMNU_HQRESIZE",		gl_texture_hqresize,			"HqResizeModes"
+	StaticText " "
+//	Option "$GLTEXMNU_RESIZETEX",		gl_texture_hqresize_textures,	"OnOff"
+//	StaticText " "
+//	Option "$GLTEXMNU_RESIZESPR",		gl_texture_hqresize_sprites,	"OnOff"
+//	StaticText " "
+//	Option "$GLTEXMNU_RESIZEFNT",		gl_texture_hqresize_fonts,		"OnOff"
+//	StaticText " "
+	Option "$GLTEXMNU_PRECACHETEX",		gl_precache,					"YesNo"
+	StaticText " "
+//	Option "$GLTEXMNU_CAMTEXOFFSCR",	gl_usefb,						"OnOff"
+//	StaticText " "
+	Option "$GLTEXMNU_TRIMSPREDGE",		gl_trimsprites,					"OnOff"
+	StaticText " "
+	Option "$GLTEXMNU_SORTDRAWLIST", 	gl_sort_textures,				"YesNo"
+	StaticText " "
+}
+
+OptionMenu "GLLightOptions"
+{
+	Title "$GLLIGHTMNU_TITLE"
+	StaticText " "
+	Option "$GLLIGHTMNU_LIGHTSENABLED",		gl_lights,						"YesNo"
+	StaticText " "
+	Option "$GLLIGHTMNU_LIGHTDEFS",			gl_attachedlights,				"YesNo"
+	StaticText " "
+	Option "$GLLIGHTMNU_CLIPLIGHTS",		gl_lights_checkside,			"YesNo"
+	StaticText " "
+	Option "$GLLIGHTMNU_LIGHTSPRITES",		gl_light_sprites,				"YesNo"
+	StaticText " "
+	Option "$GLLIGHTMNU_LIGHTPARTICLES",	gl_light_particles,				"YesNo"
+//	StaticText " "
+//	Option "$GLLIGHTMNU_FORCEADDITIVE",		gl_lights_additive,				"YesNo"
+//	StaticText " "
+//	Slider "$GLLIGHTMNU_LIGHTINTENSITY",	gl_lights_intensity, 			0.0, 1.0, 0.1
+//	StaticText " "
+//	Slider "$GLLIGHTMNU_LIGHTSIZE",			gl_lights_size,					0.0, 2.0, 0.1
+//	StaticText " "
+}
+
+OptionMenu "GLPrefOptions"
+{
+	Title "$GLPREFMNU_TITLE"
+	StaticText " "
+//	Option "$GLPREFMNU_SECLIGHTMODE",			gl_lightmode,					"LightingModes"
+//	StaticText " "
+//	Option "$GLPREFMNU_FOGMODE",				gl_fogmode,						"FogMode"
+//	StaticText " "
+//	Option "$GLPREFMNU_FOGFORCEFULLBRIGHT",		gl_brightfog,					"YesNo"
+//	StaticText " "
+//	Slider "$GLPREFMNU_WPNLIGHTSTR",			gl_weaponlight,					0,32, 2
+//	StaticText " "
+//	Option "$GLPREFMNU_ENVIRONMENTMAPMIRROR",	gl_mirror_envmap,				"OnOff"
+//	StaticText " "
+//	Option "$GLPREFMNU_ENV",					gl_enhanced_nightvision,		"OnOff"
+//	StaticText " "
+//	Option "$GLPREFMNU_ENVSTEALTH",				gl_enhanced_nv_stealth,			"EnhancedStealth"
+//	StaticText " "
+//	Option "$GLPREFMNU_SPRBRIGHTFOG",			gl_spritebrightfog,				"OnOff"
+//	StaticText " "
+//	Option "$GLPREFMNU_SPRCLIP",				gl_spriteclip,					"SpriteclipModes"
+//	StaticText " "
+	Option "$GLPREFMNU_SPRBLEND",				gl_sprite_blend,				"OnOff"
+	StaticText " "
+	Option "$GLPREFMNU_FUZZSTYLE",				gl_fuzztype,					"FuzzStyle"
+	StaticText " "
+//	Option "$GLPREFMNU_SPRBILLBOARD",			gl_billboard_mode,				"BillboardModes"
+//	StaticText " "
+//	Option "$GLPREFMNU_SPRBILLFACECAMERA",		gl_billboard_faces_camera,		"OnOff"
+//	StaticText " "
+	Option "$GLPREFMNU_PARTICLESTYLE",			gl_particles_style,				"Particles"
+//	StaticText " "
+//	Slider "$GLPREFMNU_AMBLIGHT",				gl_light_ambient,				1.0, 255.0, 5.0
+	StaticText " "
+
+	Option "$GLPREFMNU_RENDERQUALITY",			gl_render_precise,				"Precision"
+	StaticText " "
+	Option "$GLPREFMNU_VRMODE",					vr_mode, 						"VRMode"
+	StaticText " "
+	StaticText "Experimental"
+	StaticText " "
+	Option "$GLPREFMNU_VRQUADSTEREO",			vr_enable_quadbuffered,			"OnOff"
+	StaticText " "
+	Option "$GLPREFMNU_MULTISAMPLE", 			gl_multisample,					"Multisample"
+	StaticText " "
+	Option "$GLPREFMNU_TONEMAP", 				gl_tonemap,						"TonemapModes"
+	StaticText " "
+	Option "$GLPREFMNU_BLOOM",		 			gl_bloom,						"OnOff"
+	StaticText " "
+}

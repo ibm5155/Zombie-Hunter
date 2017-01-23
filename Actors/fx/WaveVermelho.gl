@@ -1,0 +1,70 @@
+// GL Definitions
+// Point Lights
+PointLight LuzVm1
+{
+	Color 0.5 0.0 0.0
+	Size 1
+	Offset 0 0 0
+}
+
+PointLight LuzVm2
+{
+	Color 0.5 0.0 0.0
+	Size 4
+	Offset 0 0 0
+}
+
+PointLight LuzVm3
+{
+	Color 0.5 0.0 0.0
+	Size 8
+	Offset 0 0 0
+}
+
+PointLight LuzVm4
+{
+	Color 0.5 0.0 0.0
+	Size 16
+	Offset 0 0 0
+}
+
+PointLight LuzVm5
+{
+	Color 0.5 0.0 0.0
+	Size 32
+	Offset 0 0 0
+}
+
+PointLight LuzVm6
+{
+	Color 0.5 0.0 0.0
+	Size 64
+	Offset 0 0 0
+}
+
+Object EchoWave_Vermelho
+{
+	Frame PR2EP { Light LuzVm6}
+	Frame PR2EO { Light LuzVm6}
+	Frame PR2EN { Light LuzVm6}
+
+	Frame PR2EM { Light LuzVm5}
+	Frame PR2EL { Light LuzVm5}
+	Frame PR2EK { Light LuzVm5}
+
+	Frame PR2EJ { Light LuzVm4}
+	Frame PR2EI { Light LuzVm4}
+	Frame PR2EH { Light LuzVm4}
+
+	Frame PR2EG { Light LuzVm3}
+	Frame PR2EF { Light LuzVm3}
+	Frame PR2EE { Light LuzVm3}
+
+	Frame PR2ED { Light LuzVm2}
+	Frame PR2EC { Light LuzVm2}
+	Frame PR2EB { Light LuzVm2}
+
+	Frame PR2EA { Light LuzVm1}
+
+
+}

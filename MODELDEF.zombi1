@@ -1,0 +1,102 @@
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBI.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 A 0 0
+}
+
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBIS1.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 B 0 0
+}
+
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBIS2.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 C 0 0
+}
+
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBIS3.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 D 0 0
+}
+
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBIS4.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 E 0 0
+}
+
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBIS5.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 E 0 0
+}
+
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBIA1.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 F 0 0
+}
+
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBIA2.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 G 0 0
+}
+
+Model zombi
+{
+   Path "3DMODELS\zombi"
+   Model 0 "ZOMBIA3.md3"
+   Skin 0 "ZOMBI.png"
+   Scale 15.0 15.0 15.0
+   AngleOffset 90.0
+  // Offset -6.5 0 0
+   FrameIndex ZMB1 H 0 0
+}
+
+//=============================================================
+
+//=============================================================

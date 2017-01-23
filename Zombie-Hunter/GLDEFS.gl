@@ -1,0 +1,3 @@
+#INCLUDE Actors/fx/WaveAzul.gl
+#INCLUDE Actors/fx/WaveAmarelo.gl
+#INCLUDE Actors/fx/WaveVermelho.gl

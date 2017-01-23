@@ -1,0 +1,33 @@
+
+Model zombi3
+{
+   Path "3DMODELS\zombi3"
+   Model 0 "ZBOSS1.md3"
+   Skin 0 "ZBOSS.png"
+   Scale 55.0 55.0 55.0
+   AngleOffset 180.0
+   Offset 60.0 -40.0 0
+   FrameIndex ZMB1 A 0 0
+}
+
+Model zombi3
+{
+   Path "3DMODELS\zombi3"
+   Model 0 "ZBOSS2.md3"
+   Skin 0 "ZBOSS.png"
+   Scale 55.0 55.0 55.0
+   AngleOffset 180.0
+   Offset 60.0 -40.0 0
+   FrameIndex ZMB1 B 0 0
+}
+
+Model zombi3
+{
+   Path "3DMODELS\zombi3"
+   Model 0 "ZBOSS3.md3"
+   Skin 0 "ZBOSS.png"
+   Scale 55.0 55.0 55.0
+   AngleOffset 180.0
+   Offset 60.0 -40.0 0
+   FrameIndex ZMB1 C 0 0
+}

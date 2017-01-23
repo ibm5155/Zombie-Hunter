@@ -1,0 +1,32 @@
+actor zombi4 : zombi 19999
+{
+  Health 160
+  Speed 20
+    States
+  {
+  Spawn:
+    ZMB1 BCDE 3 A_LookEx(0,0,0,0,360,"See")
+    Loop
+  See:
+    ZMB1 CBA 1 a_Chase
+    Loop
+  Melee:
+    ZMB1 FG 1 Fast A_FaceTarget
+    ZMB1 H 1 Fast A_SargAttack
+	ZMB1 GFA 1
+    Goto See
+    Goto See
+  Pain:
+    ZMB1 A 3
+    ZMB1 A 3 A_Pain
+    Goto See
+  Death:
+    ZMB1 A 5 A_DropItem("Clip",40,50)
+    ZMB1 A 5 A_Scream
+    ZMB1 A 5 A_NoBlocking
+    ZMB1 A 5 A_DropItem("Stimpack",60,8)
+    TNT1 A -1
+    Stop
+  }
+
+}
