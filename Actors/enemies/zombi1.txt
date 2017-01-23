@@ -1,0 +1,54 @@
+actor zombi 20000
+{
+  Health 50
+  Radius 20
+  Height 56
+  Speed 20
+  PainChance 200
+  Monster
+  +THRUSPECIES +CANNOTPUSH
+	Species "Zumbi"
+  +FLOORCLIP
+  SeeSound "EFF10"
+  AttackSound "EFF10"
+  PainSound "EFF10"
+  DeathSound "EFF10"
+  ActiveSound "EFF10"
+  Obituary "$OB_ZOMBIE" // "%o was killed by a zombieman."
+  States
+  {
+  Spawn:
+    ZMB1 A 1 A_Look
+    Loop
+  See:
+    ZMB1 B 2 a_Chase
+	ZMB1 B 2
+    ZMB1 C 2 a_Chase
+	ZMB1 C 2
+    ZMB1 D 2 a_Chase
+	ZMB1 D 2
+    ZMB1 E 2 a_Chase
+	ZMB1 E 2
+    ZMB1 D 2 a_Chase
+	ZMB1 D 2
+	ZMB1 A 2
+    Loop
+  Melee:
+    ZMB1 FG 3 Fast A_FaceTarget
+    ZMB1 H 3 Fast A_SargAttack
+	ZMB1 GFA 3
+    Goto See
+    Goto See
+  Pain:
+    ZMB1 A 3
+    ZMB1 A 3 A_Pain
+    Goto See
+  Death:
+    ZMB1 A 5 A_DropItem("Clip",40,50)
+    ZMB1 A 5 A_Scream
+    ZMB1 A 5 A_NoBlocking
+    ZMB1 A 5 A_DropItem("Stimpack",60,8)
+    TNT1 A -1
+    Stop
+  }
+}

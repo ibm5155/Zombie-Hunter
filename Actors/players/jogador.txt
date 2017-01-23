@@ -1,0 +1,16 @@
+actor Jogador : DoomPlayer
+{
+  Player.StartItem "PistolaOnda "
+  Player.WeaponSlot 1, "PistolaOnda "
+  Player.WeaponSlot 2, ""
+  Player.WeaponSlot 3, ""
+  Player.WeaponSlot 4, ""
+  Player.WeaponSlot 5, ""
+  Player.WeaponSlot 6, ""
+  Player.WeaponSlot 7, ""
+  Player.WeaponSlot 8, ""
+  Player.WeaponSlot 9, ""
+  Player.WeaponSlot 0, ""
+
+  Player.StartItem "Clip", 50
+}

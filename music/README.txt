@@ -1,0 +1,3 @@
+GAME furbyguy
+INTRO REVEREND.BLACK
+BOSS rebelspirit

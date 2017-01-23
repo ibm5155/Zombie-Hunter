@@ -1,0 +1,3 @@
+flat M_SKULL
+	pic M_SKULL tics 10
+	pic M_SKU2 tics 10

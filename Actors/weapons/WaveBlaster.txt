@@ -1,0 +1,108 @@
+ACTOR PistolaOnda : Pistol 20002
+{
+  scale 0.001
+  States
+  {
+    Ready:
+    GUNX A 1 A_WeaponReady
+    Loop
+  Deselect:
+    GUNX A 1 A_Lower
+    Loop
+  Select:
+    GUNX A 1 A_Raise
+    Loop
+  Fire:
+    GUNX A 4
+	TNT1 A 0 bright A_PlaySoundEx("echoshot","Weapon")
+    GUNX B 1 A_FireCustomMissile("EchoShot", 0, 1, 10.0, 0)
+    GUNX CDE 1
+    GUNX F 1 A_ReFire
+    Goto Ready
+  }
+}
+
+actor EchoShot 20004
+{
+Radius		10
+Speed		32//25
+Height		10
+damage (40)
+PROJECTILE
+renderstyle none
+seesound "echobounce"
++DOOMBOUNCE
+bouncecount 10
+bouncefactor 1.0
+reactiontime 180
+wallbouncefactor 1.0
+states
+{
+Spawn:
+TNT1 A 0 A_CountDown
+TNT1 A 1 A_SpawnItem("EchoWave_Amarelo")
+loop
+}
+}
+actor EchoShot_vermelho : EchoShot 20005
+{
+states
+{
+Spawn:
+TNT1 A 0 A_CountDown
+TNT1 A 1 A_SpawnItem("EchoWave_Vermelho")
+loop
+}
+}
+
+actor EchoShot_azul : EchoShot 20006
+{
+states
+{
+Spawn:
+TNT1 A 0 A_CountDown
+TNT1 A 1 A_SpawnItem("EchoWave_Azul")
+loop
+}
+}
+actor EchoWave
+{
++CLIENTSIDEONLY
+- SOLID
++NOGRAVITY
++BRIGHT
+
+translation "96:111=224:231" // transforma a faixa de cor 112 até 127 em 224:231
+height 1
+radius 1
+scale 0.2
+renderstyle translucent
+alpha 1.0
+states
+{
+Spawn:
+//PR2E OMKIGECA 1 bright A_FadeOut(0.04)
+  PR2E PONMLKJIHGFEDCBA 1 bright
+stop
+}
+}
+
+actor EchoWave_Amarelo : EchoWave
+{
+translation "96:111=224:231" // transforma a faixa de cor 112 até 127 em 224:231
+}
+
+actor EchoWave_Cinza : EchoWave
+{
+}
+
+actor EchoWave_Azul : EchoWave
+{
+translation "96:111=190:205" // transforma a faixa de cor 112 até 127 em 224:231
+}
+
+actor EchoWave_Vermelho : EchoWave
+{
+translation "96:111=32:47" // transforma a faixa de cor 112 até 127 em 224:231
+}
+

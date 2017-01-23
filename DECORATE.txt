@@ -1,0 +1,6 @@
+#include Actors/fx/RAIN.txt
+#include Actors/weapons/WaveBlaster.txt
+#include Actors/enemies/zombi1.txt
+#include Actors/enemies/zombi2.txt
+#include Actors/enemies/zombi3.txt
+#include Actors/players/jogador.txt

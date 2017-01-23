@@ -1,0 +1,3 @@
+STARTUPTYPE  = "DOOM"
+STARTUPTITLE = "Zombie Hunter"
+STARTUPCOLORS = "b7 00 02", "00 0e 0e"

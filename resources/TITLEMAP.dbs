@@ -1,0 +1,255 @@
+type = "Doom Builder Map Settings Configuration";
+gameconfig = "GZDoom_DoomUDMF.cfg";
+strictpatches = 0;
+
+maps
+{
+	
+	TITLEPIC
+	{
+		
+		resources
+		{
+			
+			resource0
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\musica.wad";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource1
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\zumbi.wad";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource2
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\TEXTURES.WAD";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource3
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\zumbi2.wad";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource4
+			{
+				type = 2;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\modelos3D.pk3";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource5
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\arma.wad";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+		}
+		defaultfloortexture = "C1";
+		defaultceiltexture = "C1";
+		defaulttoptexture = "C1";
+		defaultwalltexture = "C1";
+		defaultbottomtexture = "C1";
+		custombrightness = 196;
+		customfloorheight = 0;
+		customceilheight = 128;
+		overridefloortexture = false;
+		overrideceiltexture = false;
+		overridetoptexture = false;
+		overridemiddletexture = false;
+		overridebottomtexture = false;
+		overridefloorheight = false;
+		overrideceilheight = false;
+		overridebrightness = false;
+		uselongtexturenames = false;
+		useresourcesinreadonlymode = false;
+		viewpositionx = -1601.025f;
+		viewpositiony = 634.5536f;
+		viewscale = 0.1346645f;
+		scriptcompiler = "zdoom_acs.cfg";
+		
+		grid
+		{
+			background = "";
+			backsource = 0;
+			backoffsetx = 0;
+			backoffsety = 0;
+			backscalex = 100;
+			backscaley = 100;
+			gridsize = 32f;
+		}
+		
+		scriptdocuments
+		{
+			
+			document0
+			{
+				filename = "DIALOGUE";
+				hash = 3588187714;
+				resource;
+				tabtype = 0;
+				scripttype = 18;
+			}
+			
+			document1
+			{
+				filename = "SCRIPTS";
+				hash = 3469170009;
+				resource;
+				tabtype = 0;
+				scripttype = 1;
+				caretposition = 154;
+				activetab = true;
+			}
+		}
+	}
+	
+	TITLEMAP
+	{
+		scriptcompiler = "zdoom_acs.cfg";
+		defaultfloortexture = "FLOOR0_1";
+		overrideceilheight = false;
+		
+		resources
+		{
+			
+			resource0
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\TEXTURES.WAD";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource1
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\arma.wad";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource2
+			{
+				type = 2;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\modelos3D.pk3";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource3
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\zumbi.wad";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource4
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\zumbi2.wad";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+			
+			resource5
+			{
+				type = 0;
+				location = "D:\\Programacao\\Global Game Jam\\2017\\JOGO\\resources\\menu.wad";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+			}
+		}
+		defaulttoptexture = "STARTAN1";
+		
+		scriptdocuments
+		{
+			
+			document0
+			{
+				filename = "DIALOGUE";
+				hash = 3588187714;
+				resource;
+				tabtype = 0;
+				scripttype = 18;
+			}
+			
+			document1
+			{
+				filename = "SCRIPTS";
+				hash = 3469170009;
+				resource;
+				tabtype = 0;
+				scripttype = 1;
+				caretposition = 381;
+				activetab = true;
+			}
+		}
+		overridemiddletexture = false;
+		
+		fieldtypes
+		{
+			
+			sidedef
+			{
+				offsety_mid = 1;
+				offsetx_mid = 1;
+			}
+		}
+		viewpositionx = -267.2985f;
+		viewpositiony = 5.34864f;
+		viewscale = 1.806047f;
+		overridefloortexture = false;
+		customceilheight = 128;
+		customfloorheight = 0;
+		
+		grid
+		{
+			background = "";
+			backoffsetx = 0;
+			backoffsety = 0;
+			backscalex = 100;
+			backscaley = 100;
+			backsource = 0;
+			gridsize = 16f;
+		}
+		defaultceiltexture = "CEIL1_1";
+		overridebrightness = false;
+		uselongtexturenames = false;
+		useresourcesinreadonlymode = false;
+		overridebottomtexture = false;
+		overridefloorheight = false;
+		overridetoptexture = false;
+		custombrightness = 196;
+		overrideceiltexture = false;
+		defaultwalltexture = "STARTAN1";
+		defaultbottomtexture = "STARTAN1";
+	}
+}
